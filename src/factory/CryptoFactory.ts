@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Crypto } from "../models/Crypto";
+import { Crypto, CryptoHistory } from "../models/Crypto";
 
 export class CryptoFactory extends Crypto {
     static createCryptoFromJson(json: Record<string, any>): Crypto {
@@ -30,6 +30,13 @@ export class CryptoFactory extends Crypto {
             symbol: json.symbol,
             total_supply: json.total_supply,
             total_volume: json.total_volume
+        })
+    }
+    static createCryptoHistoryFromJson(json: Record<string, any>): CryptoHistory {
+        return new CryptoHistory({
+            prices: json.prices,
+            market_caps: json.market_caps,
+            total_volumes: json.total_volumes
         })
     }
 }

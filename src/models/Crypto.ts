@@ -83,3 +83,39 @@ export class Crypto {
     }
 
 }
+
+export class CryptoHistory {
+    prices: number[][];
+    market_caps: number[][];
+    total_volumes: number[][];
+
+    constructor(params: {
+        prices: number[][];
+        market_caps: number[][];
+        total_volumes: number[][];
+    }) {
+        this.prices = params.prices;
+        this.market_caps = params.market_caps;
+        this.total_volumes = params.total_volumes;
+    }
+
+    get formatPricesDataAreaChart() {
+        return this.prices.map((price) => {
+            return {
+                timestamp: price[0],
+                price: price[1]
+            }
+        })
+    }
+}
+
+export interface getCryptoParams {
+    vs_currency: string;
+}
+
+export interface getHistoricalDataParams {
+    id: string;
+    vs_currency: string;
+    days: number;
+    precision: number;
+}
