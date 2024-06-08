@@ -20,8 +20,6 @@ export const Navbar: React.FC = () => {
                    <ul className='hidden lg:flex justify-around w-full items-center text-2xl'>
                         <li className='text-gray-600'>Home</li>
                         <li className='text-gray-600 py-2'>About</li>
-                        <li className='text-gray-600'>Services</li>
-                        <li className='text-gray-600 py-2'>Contact</li>
                    </ul>
                    { !isOpen ? (
                         <div className="space-y-2 lg:hidden" onClick={handleToggleHambMenu}>
@@ -41,8 +39,6 @@ export const Navbar: React.FC = () => {
                    <ul>
                         <li className='text-gray-600'>Home</li>
                         <li className='text-gray-600 py-2'>About</li>
-                        <li className='text-gray-600'>Services</li>
-                        <li className='text-gray-600 py-2'>Contact</li>
                    </ul>
               </div>
          </nav>
