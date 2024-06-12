@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import axios, { AxiosError } from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 import { Crypto, CryptoHistory, getCryptoParams, getHistoricalDataParams } from '../models/Crypto';
 import { CryptoFactory } from '../factory/CryptoFactory';
 
@@ -43,7 +43,7 @@ export const getHistoricalData = async (
   };
 
   try {
-    const response = await axios.request(options);
+    const response: AxiosResponse<CryptoHistory, any> = await axios.request(options);
     return CryptoFactory.createCryptoHistoryFromJson(response.data);
   } catch (error) {
     if (error instanceof AxiosError) {
